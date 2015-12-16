@@ -60,7 +60,7 @@ public class Radar
         //    4. update the accumulator 2D array based on the state of the currentScan 2D array
         //    5. increment the numScans instance variable
         
-        
+        //this for loop sets all of the values in the currentScan array to false
         for (int i=0;i<currentScan.length;i++)
         {
             for (int j=0; j<currentScan[i].length;j++)
@@ -68,8 +68,11 @@ public class Radar
                 currentScan[i][j]=false;
             }
         }
+        //sets one location of the 2D array currentScan to true (this is where the monster is)
         this.currentScan[this.monsterLocationRow][this.monsterLocationCol]=true;
+        //injects the noise 
         injectNoise();
+        //for loop iterates through every index of the 2D array currentScan and if the location is true then the accumulator array is updated
         for (int i=0;i<currentScan.length;i++)
         {
             for (int j=0; j<currentScan[i].length;j++)
@@ -81,6 +84,7 @@ public class Radar
                     
             }
         }
+        //the number of scans is incremented
         numScans++;
     }
         
